@@ -1,0 +1,37 @@
+[[entries]]
+title = "最新文章"
+url = "posts"
+
+  [entries.post_list]
+  section = "posts"
+  limit = 5
+  show_more = true
+  show_more_text = "查看全部文章..."
+  show_more_url = "posts"
+
+[[entries]]
+title = "导航"
+
+  [[entries.entries]]
+  title = "文章"
+  url = "posts"
+
+  [[entries.entries]]
+  title = "标签"
+  url = "tags"
+
+  [[entries.entries]]
+  title = "归档"
+  url = "archive"
+
+  [[entries.entries]]
+  title = "项目"
+  url = "projects"
+
+  [[entries.entries]]
+  title = "关于"
+  url = "about"
+
+[[entries]]
+title = "RSS"
+url = "index.xml"

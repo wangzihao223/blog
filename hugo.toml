@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'FAN FAN Blog'
-theme = ['github.com/akopdev/hugo-theme-chicago7']
+theme = 'nostyleplease'
 
 pagination.pagerSize = 10
 
@@ -9,7 +9,10 @@ pagination.pagerSize = 10
 tag = "tags"
 
 [permalinks]
-posts = "/posts/:year:month:day"
+# 之前的规则只包含日期，同一天多篇文章会生成相同的 URL（互相覆盖），
+# 导致“最新文章”列表里多个标题指向同一个链接。
+# 这里把文件名加进来，保证每篇文章 URL 唯一。
+posts = "/posts/:year/:month/:day/:contentbasename/"
 
 [markup]
 [markup.highlight]
@@ -17,6 +20,10 @@ style = "bw"
 
 [params]
 author = "Zihao"
+description = "记录技术、产品与生活"
+
+[params.theme_config]
+show_description = true
 
 [menu]
 [[menu.header]]

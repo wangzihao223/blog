@@ -1,29 +1,12 @@
 {{ define "main" }}
-<section>
-  {{ .Content }}
-</section>
+<header>
+  <h1>{{ .Site.Title }}</h1>
+  {{- if .Site.Params.theme_config.show_description -}}
+    <p>{{ .Site.Params.description }}</p>
+  {{- end -}}
+</header>
 
-<section>
-  <header>
-    <h2>最新文章</h2>
-    <p class="meta">
-      <a href="{{ "posts" | relURL }}" class="button">全部文章</a>
-      <a href="{{ "tags" | relURL }}" class="button">标签</a>
-      <a href="{{ "archive" | relURL }}" class="button">归档</a>
-    </p>
-  </header>
+{{ .Content }}
 
-  {{ $posts := where .Site.RegularPages "Section" "posts" }}
-  {{ if gt (len $posts) 0 }}
-    <section class="grid posts">
-      {{ range first 5 ($posts.ByDate.Reverse) }}
-        <time datetime="{{ .Date.Format "2006-01-02" }}" class="meta">{{ .Date.Format "Jan 02, 2006" }}</time>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{ end }}
-    </section>
-  {{ else }}
-    <p class="meta">还没有文章。用 <code>hugo new content posts/my-first-post.md</code> 创建第一篇。</p>
-  {{ end }}
-</section>
+{{ partial "menu_item.html" (dict "context" . "collection" .Site.Data.menu.entries) }}
 {{ end }}
-
