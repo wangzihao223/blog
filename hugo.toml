@@ -1,0 +1,47 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'FAN FAN Blog'
+theme = ['github.com/akopdev/hugo-theme-chicago7']
+
+pagination.pagerSize = 10
+
+[permalinks]
+posts = "/posts/:year:month:day"
+
+[markup]
+[markup.highlight]
+style = "bw"
+
+[params]
+author = "Zihao"
+
+[menu]
+[[menu.header]]
+name = "主页"
+url = "/"
+weight = 10
+
+[[menu.header]]
+name = "项目"
+url = "projects"
+weight = 20
+
+[[menu.header]]
+name = "文章"
+url = "posts"
+weight = 30
+
+[[menu.header]]
+name = "标签"
+url = "tags"
+weight = 40
+
+[[menu.header]]
+name = "归档"
+url = "archive"
+weight = 45
+
+[[menu.header]]
+name = "关于"
+url = "about"
+weight = 50
