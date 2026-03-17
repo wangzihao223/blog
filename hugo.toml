@@ -5,6 +5,9 @@ theme = ['github.com/akopdev/hugo-theme-chicago7']
 
 pagination.pagerSize = 10
 
+[taxonomies]
+tag = "tags"
+
 [permalinks]
 posts = "/posts/:year:month:day"
 
