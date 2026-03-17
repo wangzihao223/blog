@@ -34,6 +34,14 @@ jobs:
           hugo-version: "0.150.0"
           extended: true
 
+      - name: Setup Node (for Dart Sass)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Dart Sass
+        run: npm install -g sass
+
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -56,4 +64,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
