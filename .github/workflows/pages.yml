@@ -42,17 +42,16 @@ jobs:
           tar -xzf dart-sass.tar.gz
           echo "$PWD/dart-sass" >> "$GITHUB_PATH"
           "$PWD/dart-sass/sass" --version
-          sass --version
 
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
 
       - name: Build
-        env:
-          DART_SASS_BINARY: sass
-          HUGO_DART_SASS_BINARY: sass
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: |
+          export PATH="${GITHUB_WORKSPACE}/dart-sass:$PATH"
+          sass --version
+          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
