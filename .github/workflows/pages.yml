@@ -40,16 +40,6 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
-      # Hugo's Dart Sass transpiler needs the official Dart Sass distribution
-      # (the npm "sass" package does not support Hugo's embedded protocol)
-
-      - name: Install Dart Sass
-        run: |
-          curl -fsSL -o dart-sass.tar.gz "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
-          tar -xzf dart-sass.tar.gz
-          echo "$PWD/dart-sass" >> "$GITHUB_PATH"
-          sass --version
-
       - name: Cache Hugo resources
         uses: actions/cache@v4
         with:
