@@ -34,18 +34,14 @@ jobs:
           hugo-version: "0.150.0"
           extended: true
 
-      - name: Setup Node (for Dart Sass)
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
+      # Hugo's Dart Sass transpiler needs the official Dart Sass distribution
+      # (the npm "sass" package does not support Hugo's embedded protocol).
       - name: Install Dart Sass
-        run: npm install -g sass
-
-      - name: Ensure Sass in PATH
         run: |
-          echo "$(npm prefix -g)/bin" >> "$GITHUB_PATH"
-          export PATH="$(npm prefix -g)/bin:$PATH"
+          curl -L -o dart-sass.tar.gz "https://github.com/sass/dart-sass/releases/download/1.86.1/dart-sass-1.86.1-linux-x64.tar.gz"
+          tar -xzf dart-sass.tar.gz
+          echo "$PWD/dart-sass" >> "$GITHUB_PATH"
+          "$PWD/dart-sass/sass" --version
           sass --version
 
       - name: Configure Pages
@@ -53,6 +49,9 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build
+        env:
+          DART_SASS_BINARY: sass
+          HUGO_DART_SASS_BINARY: sass
         run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
