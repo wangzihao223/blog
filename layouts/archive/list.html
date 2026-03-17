@@ -6,15 +6,7 @@
   </header>
 
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
-  {{ $filtered := slice }}
-  {{ range $p := $posts }}
-    {{ $fn := "" }}
-    {{ with $p.File }}{{ $fn = .Filename }}{{ end }}
-    {{ if or (eq $fn "") (not (in $fn "/themes/")) }}
-      {{ $filtered = $filtered | append $p }}
-    {{ end }}
-  {{ end }}
-  {{ $posts = $filtered }}
+  {{ $posts = where $posts "File.Filename" "not like" "/themes/" }}
   {{ range ($posts.GroupByDate "2006") }}
     <h2>{{ .Key }}</h2>
     <section class="grid posts">

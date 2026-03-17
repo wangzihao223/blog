@@ -40,6 +40,12 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
+      - name: Setup Dart Sass
+        run: |
+          curl -L -o dart-sass.tar.gz "https://github.com/sass/dart-sass/releases/download/${{ env.DART_SASS_VERSION }}/dart-sass-${{ env.DART_SASS_VERSION }}-linux-x64.tar.gz"
+          tar -xzf dart-sass.tar.gz
+          echo "$PWD/dart-sass" >> "$GITHUB_PATH"
+
       - name: Cache Hugo resources
         uses: actions/cache@v4
         with:
@@ -53,9 +59,11 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Build
+
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
         run: |
-          sass --version
           hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
           touch public/.nojekyll
 
