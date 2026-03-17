@@ -33,6 +33,9 @@ jobs:
         with:
           hugo-version: "0.150.0"
           extended: true
+      
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
 
       # Hugo's Dart Sass transpiler needs the official Dart Sass distribution
       # (the npm "sass" package does not support Hugo's embedded protocol).
