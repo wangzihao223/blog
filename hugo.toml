@@ -24,6 +24,7 @@ description = "记录技术、产品与生活"
 
 [params.theme_config]
 show_description = true
+appearance = "light"
 
 [menu]
 [[menu.header]]

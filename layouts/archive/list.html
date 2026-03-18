@@ -6,7 +6,9 @@
   </header>
 
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
-  {{ $posts = where $posts "File.Filename" "not like" "/themes/" }}
+  {{/* Exclude posts shipped inside the theme (themes/<theme>/content/...). */}}
+  {{ $themePosts := where $posts "File.Filename" "like" "/themes/" }}
+  {{ $posts = complement $themePosts $posts }}
   {{ range ($posts.GroupByDate "2006") }}
     <h2>{{ .Key }}</h2>
     <section class="grid posts">
