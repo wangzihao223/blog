@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/冒泡排序.md",
+                "file": "content/posts/另一个背包问题.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "冒泡排序"
+              "title": "另一个背包问题"
             }
           }
         ]
@@ -185,10 +185,11 @@
   },
   "active": "8c14f3727ce0aa41",
   "lastOpenFiles": [
-    "content/posts/_index.md",
     "content/posts/道路封闭.md",
+    "content/posts/冒泡排序.md",
     "content/posts/另一个背包问题.md",
     "content/posts/子集选取.md",
+    "content/posts/_index.md",
     "static/Pasted image 20260318231422.png",
     "public/posts/1/01/01/子集选取/index.html",
     "public/posts/1/01/01/子集选取",
@@ -198,7 +199,6 @@
     "public/posts/1/01",
     "public/posts/1",
     "未命名.md",
-    "content/posts/冒泡排序.md",
     "layouts/partials/footer.html",
     "layouts/partials/theme_switcher.html",
     "config.toml",
