@@ -4,7 +4,7 @@ date = "2026-06-17T16:45:00+08:00"
 draft = false
 tags = ["Elixir", "SMTP", "协议"]
 +++
-![SMTP 发送流程](/images/smtp_flow.png)
+![SMTP 发送流程](smtp_flow.png)
 ## 什么是 SMTP
 
 SMTP，全称是 Simple Mail Transfer Protocol，中文通常叫简单邮件传输协议。它是互联网上发送邮件的核心协议。
