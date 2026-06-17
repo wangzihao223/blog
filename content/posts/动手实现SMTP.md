@@ -392,20 +392,20 @@ lib/mix/tasks/esender.ex
 
 可以通过命令行执行：
 
-```powershell
+```bash
 E:\Elixir\bin\mix.bat esender
 ```
 
 也可以用命令行参数覆盖配置文件：
 
-```powershell
-E:\Elixir\bin\mix.bat esender --to someone@example.com --subject "hello"
+```bash
+mix esender --to someone@example.com --subject "hello"
 ```
 
 命令行后面的普通参数会作为附件路径：
 
-```powershell
-E:\Elixir\bin\mix.bat esender --to someone@example.com F:/files/a.txt F:/files/b.pdf
+```bash
+mix esender --to someone@example.com F:/files/a.txt F:/files/b.pdf
 ```
 
 Mix task 内部会先启动应用：
