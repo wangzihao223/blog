@@ -393,7 +393,7 @@ lib/mix/tasks/esender.ex
 可以通过命令行执行：
 
 ```bash
-E:\Elixir\bin\mix.bat esender
+mix esender
 ```
 
 也可以用命令行参数覆盖配置文件：
